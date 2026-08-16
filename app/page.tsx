@@ -11,7 +11,6 @@ import MissionVision from "@/components/home/mission-vision";
 export default function Home() {
   return (
     <div>
-      <h1 className="sr-only">Inclusive Growth (IG) | Inclusive Technology and Disability Empowerment in Ethiopia</h1>
       <Hero />
       <About />
       <MissionVision />

@@ -19,8 +19,9 @@ const stats: StatItem[] = [
   { value: 0, suffix: "", label: "Project Complete" },
   { value: 0, prefix: "$", suffix: "", label: "Total Fund Raised" },
   { value: 35, suffix: "", label: "Local Volunteers" },
-  { value: 2, suffix: "", label: "World Wide Volunteers" }
+  { value: 2, suffix: "", label: "World Wide Volunteers" },
 ];
+
 const About = () => {
   useWow();
 
@@ -33,16 +34,17 @@ const About = () => {
               <div className="wow fadeInUp relative overflow-hidden rounded-lg">
                 <Image
                   src="/assets/img/about_img_1.jpg"
-                  alt="Image"
+                  alt="Inclusive Growth team working to advance inclusion and accessibility"
                   width={1924}
                   height={500}
                   className="h-auto w-full"
                 />
               </div>
+
               <div className="wow fadeInLeft absolute right-0 bottom-0 w-[200px] overflow-hidden rounded-br-lg border-t-16 border-l-16 border-white sm:w-[250px] lg:w-[300px]">
                 <Image
                   src="/assets/img/about_img_2.jpg"
-                  alt="Image"
+                  alt="Inclusive Growth community engagement"
                   width={250}
                   height={300}
                   className="h-auto w-full"
@@ -50,15 +52,18 @@ const About = () => {
               </div>
             </div>
           </div>
+
           <div className="w-full px-4 lg:w-1/2">
             <div className="container mx-auto lg:mx-0">
               <div className="mb-4 text-center md:text-left">
                 <SectionTitle title="About Us" />
-                <h2 className="wow fadeInDown mt-2 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl font-heading">
+
+                <h2 className="wow fadeInDown mt-2 font-heading text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
                   Act today for a better tomorrow
                 </h2>
               </div>
-              <p className="text-muted-foreground mb-6 text-center text-lg md:text-left">
+
+              <p className="mb-6 text-center text-lg text-muted-foreground md:text-left">
                 Breaking down barriers and championing accessibility as a
                 fundamental right, not an afterthought. We believe that true
                 progress requires the meaningful participation of all
@@ -66,26 +71,38 @@ const About = () => {
                 meaningful participation of individuals across every sector of
                 societal development.
               </p>
+
               <div className="mb-8 grid grid-cols-1 gap-6 text-center md:grid-cols-2 md:text-left">
                 {stats.map((stat, i) => (
                   <div key={i}>
-                    <h3 className="stat-number">
+                    <p className="stat-number">
                       <AnimatedCounter
                         value={stat.value}
                         prefix={stat.prefix}
                         suffix={stat.suffix}
                       />
-                    </h3>
-                    <p className="mt-2 text-lg text-gray-500">{stat.label}</p>
+                    </p>
+
+                    <p className="mt-2 text-lg text-gray-500">
+                      {stat.label}
+                    </p>
                   </div>
                 ))}
               </div>
-              <div className="text-center md:text-left flex flex-col md:flex-row gap-4">
+
+              <div className="flex flex-col gap-4 text-center md:flex-row md:text-left">
                 <Link href="/about/our-story">
-                  <CustomButton label="Who we are?" variant="secondary" />
+                  <CustomButton
+                    label="Who we are?"
+                    variant="secondary"
+                  />
                 </Link>
+
                 <Link href="/about/our-story">
-                  <CustomButton label="SEE OUR STORY" variant="secondary" />
+                  <CustomButton
+                    label="SEE OUR STORY"
+                    variant="secondary"
+                  />
                 </Link>
               </div>
             </div>

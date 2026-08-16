@@ -15,10 +15,13 @@ const Hero = () => {
   useWow();
 
   return (
-    <section className="relative md:h-screen h-[600px] w-full overflow-hidden" id="hero">
+    <section
+      className="relative h-[600px] w-full overflow-hidden md:h-screen"
+      id="hero"
+    >
       <Swiper
         slidesPerView={1}
-        effect={"fade"}
+        effect="fade"
         loop={true}
         speed={1000}
         autoplay={false}
@@ -26,28 +29,33 @@ const Hero = () => {
           clickable: true,
           renderBullet: function (_index, className) {
             return `<div class="${className} my-custom-bullet"></div>`;
-          }
+          },
         }}
         modules={[Autoplay, Pagination, EffectFade]}
-        className="md:h-full h-[600px] w-full"
+        className="h-[600px] w-full md:h-full"
       >
         {heroSlides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative flex md:h-full min-h-[600px] md:min-h-screen w-full items-center justify-center bg-cover bg-center text-center md:text-left"
+              className="relative flex min-h-[600px] w-full items-center justify-center bg-cover bg-center text-center md:min-h-screen md:h-full md:items-center md:text-left"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black/50"></div>
+
               <div className="relative z-10 mx-auto h-full w-full max-w-7xl md:p-0">
                 <div className="flex h-full w-full flex-col items-center justify-center p-8 md:flex-row md:items-end md:justify-between md:p-[5%]">
                   <div className="flex w-full flex-col items-center text-center md:order-1 md:w-auto md:items-start md:text-left">
-                    <h2 className="max-w-4xl text-3xl leading-tight font-bold text-white sm:text-4xl lg:text-5xl xl:text-7xl font-heading">
+                    <h1 className="font-heading max-w-4xl text-3xl leading-tight font-bold text-white sm:text-4xl lg:text-5xl xl:text-7xl">
                       {slide.title}
-                    </h2>
+                    </h1>
+
                     <p
-                      className="wow fadeInDown text-background/90 mt-4 max-w-2xl text-base md:text-lg lg:text-xl"
-                      dangerouslySetInnerHTML={{ __html: slide.subtitle }}
+                      className="wow fadeInDown mt-4 max-w-2xl text-base text-background/90 md:text-lg lg:text-xl"
+                      dangerouslySetInnerHTML={{
+                        __html: slide.subtitle,
+                      }}
                     ></p>
+
                     <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                       <CustomButton
                         label="EXPLORE MORE"
@@ -55,6 +63,7 @@ const Hero = () => {
                         className="wow fadeInLeft"
                         onClick={() => (window.location.href = "#about")}
                       />
+
                       <CustomButton
                         label="OUR CAUSES"
                         variant="secondary"

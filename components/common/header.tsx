@@ -127,13 +127,13 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link href={'/donate'}>
-              <CustomButton
-                label="DONATE NOW"
-                variant="default"
-                data-modal="donation"
-                className="hidden md:inline-block"
-              />
+            <Link
+              href="/donate"
+              aria-label="Donate to Inclusive Growth"
+              className="bg-accent hover:bg-secondary hidden rounded-[30px] px-10 py-4 font-bold capitalize leading-none tracking-wide text-white transition-all duration-300 ease-in-out md:inline-block"
+              data-modal="donation"
+            >
+              Donate to Inclusive Growth
             </Link>
 
             {/* Mobile View */}
@@ -161,7 +161,7 @@ export default function Header() {
                       const active = isActive(link.href, link.sublinks);
 
                       return link.sublinks ? (
-                        <div key={index} className="w-full">
+                        <li key={index} className="w-full">
                           <button
                             onClick={() => {
                               const value =
@@ -199,25 +199,31 @@ export default function Header() {
                               </Link>
                             ))}
                           </div>
-                        </div>
+                        </li>
                       ) : (
-                        <Link key={index}
-                          onClick={closeMobileMenu}
-                          href={link.href}
-                          className={cn("hover:text-accent transition-colors w-full", active && "text-accent")}
-                        >
-                          {link.label}
-                        </Link>
+                        <li key={index} className="w-full">
+                          <Link
+                            onClick={closeMobileMenu}
+                            href={link.href}
+                            className={cn(
+                              "hover:text-accent w-full transition-colors",
+                              active && "text-accent"
+                            )}
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
                       )
                     })}
-                  </ul><Link href={'/donate'} className="flex justify-center">
-                    <CustomButton
-                      label="DONATE NOW"
-                      variant="default"
-                      data-modal="donation"
-                      className="mt-8 inline-block text-lg font-bold md:hidden"
-                      onClick={closeMobileMenu}
-                    />
+                  </ul>
+                  <Link
+                    href="/donate"
+                    aria-label="Donate to Inclusive Growth"
+                    className="bg-accent hover:bg-secondary mt-8 inline-block rounded-[30px] px-10 py-4 text-center text-lg font-bold capitalize leading-none tracking-wide text-white transition-all duration-300 ease-in-out md:hidden"
+                    data-modal="donation"
+                    onClick={closeMobileMenu}
+                  >
+                    Donate to Inclusive Growth
                   </Link>
                 </div>
               </div>

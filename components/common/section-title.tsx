@@ -6,15 +6,20 @@ interface Props {
   className?: string;
 }
 
+/**
+ * Eyebrow/section label. It is intentionally a paragraph rather than a
+ * heading so it does not create a second heading level before the section's
+ * actual h2.
+ */
 export default function SectionTitle({ title, className }: Props) {
   return (
-    <h1
+    <p
       className={cn(
-        "text-accent font-heading text-xl font-semibold",
+        "text-secondary font-heading text-xl font-semibold uppercase",
         className
       )}
     >
       {title}
-    </h1>
+    </p>
   );
 }

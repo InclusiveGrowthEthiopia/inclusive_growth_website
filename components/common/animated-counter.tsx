@@ -26,7 +26,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   });
 
   return (
-    <div ref={ref}>
+    <span ref={ref}>
       {inView ? (
         <CountUp
           start={config?.start || 0}
@@ -38,7 +38,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       ) : (
         `${prefix}${value}${suffix}`
       )}
-    </div>
+    </span>
   );
 };
 
